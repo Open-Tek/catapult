@@ -251,26 +251,26 @@ public class BluePrint {
     }
     
     public String buildQuery(){
-        String query = "(";
+        StringBuilder query = new StringBuilder("(");
         for (int i = 0; i<columns.size(); i++) {
             Column col = columns.get(i);
-            query += col.getName() + " " + col.getType() + " ";
+            query.append(" ").append(col.getName()).append(" ").append(col.getType()).append(" ");
             if(col.getLength() > 0){
-                query += "(" + col.getLength() + ") ";
+                query.append("(").append(col.getLength()).append(") ");
             }
             if(col.isNotnull())
-                query += "NOT NULL ";
+                query.append("NOT NULL ");
             if(col.isPrimary())
-                query += "PRIMARY KEY ";
+                query.append("PRIMARY KEY ");
             if(col.isUnique())
-                query += "UNIQUE ";
+                query.append("UNIQUE ");
             if(col.getDefaultValue() != null)
-                query += "DEFAULT '" + col.getDefaultValue() + "'";
+                query.append("DEFAULT '").append(col.getDefaultValue()).append("'");
 //            if(col.getReference())
-            query += i == columns.size() - 1?",": "";
+            query.append(i == columns.size() - 1 ? "" : ",");
 
         }
-        query += ")";
-        return query;
+        query.append(")");
+        return query.toString();
     }
 }

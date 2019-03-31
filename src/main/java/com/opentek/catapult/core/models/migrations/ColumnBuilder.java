@@ -33,8 +33,8 @@ public class ColumnBuilder {
         this.column.setReference(ref);
         return this;
     }
-    public ColumnBuilder notnull(boolean notnull){
-        this.column.setNotnull(notnull);
+    public ColumnBuilder notnull(){
+        this.column.setNotnull(true);
         return this;
     }
     public void build(){
@@ -43,6 +43,7 @@ public class ColumnBuilder {
     public ColumnBuilder length(int length){
         if(length < 0)
             throw new IllegalArgumentException("length cannot be negative");
+        this.column.setLength(length);
         return this;
     }
 }
