@@ -15,6 +15,10 @@ public class Column {
             this.primary = primary;
       }
 
+      public Column(String columnName) {
+            this.name = columnName;
+      }
+
       public String getType() {
             return type;
       }
