@@ -252,9 +252,25 @@ public class BluePrint {
     
     public String buildQuery(){
         String query = "(";
-        for (Column col:
-             ) {
-            
+        for (int i = 0; i<columns.size(); i++) {
+            Column col = columns.get(i);
+            query += col.getName() + " " + col.getType() + " ";
+            if(col.getLength() > 0){
+                query += "(" + col.getLength() + ") ";
+            }
+            if(col.isNotnull())
+                query += "NOT NULL ";
+            if(col.isPrimary())
+                query += "PRIMARY KEY ";
+            if(col.isUnique())
+                query += "UNIQUE ";
+            if(col.getDefaultValue() != null)
+                query += "DEFAULT '" + col.getDefaultValue() + "'";
+//            if(col.getReference())
+            query += i == columns.size() - 1?",": "";
+
         }
+        query += ")";
+        return query;
     }
 }
