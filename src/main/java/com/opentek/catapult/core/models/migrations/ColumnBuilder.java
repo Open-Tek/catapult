@@ -40,4 +40,9 @@ public class ColumnBuilder {
     public void build(){
         this.columns.add(this.column);
     }
+    public ColumnBuilder length(int length){
+        if(length < 0)
+            throw new IllegalArgumentException("length cannot be negative");
+        return this;
+    }
 }

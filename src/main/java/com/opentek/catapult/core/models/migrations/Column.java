@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Column {
       private String type, name, defaultValue, reference;
+      private int length;
       private boolean unique, primary, notnull;
 
       public boolean isNotnull() {
@@ -25,6 +26,14 @@ public class Column {
       }
 
       public Column() {
+      }
+
+      public int getLength() {
+            return length;
+      }
+
+      public void setLength(int length) {
+            this.length = length;
       }
 
       public String getType() {
