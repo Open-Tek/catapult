@@ -4,15 +4,36 @@ import java.util.Objects;
 
 public class Column {
       private String type, name, defaultValue, reference;
-      private boolean unique, primary;
+      private int length;
+      private boolean unique, primary, notnull;
 
-      public Column(String type, String name, String defaultValue, String reference, boolean unique, boolean primary) {
+      public boolean isNotnull() {
+            return notnull;
+      }
+
+      public void setNotnull(boolean notnull) {
+            this.notnull = notnull;
+      }
+
+      public Column(String type, String name, String defaultValue, String reference, boolean unique, boolean primary, boolean notnull) {
             this.type = type;
             this.name = name;
             this.defaultValue = defaultValue;
             this.reference = reference;
             this.unique = unique;
             this.primary = primary;
+            this.notnull = notnull;
+      }
+
+      public Column() {
+      }
+
+      public int getLength() {
+            return length;
+      }
+
+      public void setLength(int length) {
+            this.length = length;
       }
 
       public String getType() {

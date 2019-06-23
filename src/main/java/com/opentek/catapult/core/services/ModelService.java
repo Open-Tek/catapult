@@ -66,7 +66,7 @@ public class ModelService {
                                     throw new InvalidModelException("Invalid model given");
                         }
                   }
-                  Column column = new Column(type, columnName, defaultValue, ref, unique, primary);
+                  Column column = new Column(type, columnName, defaultValue, ref, unique, primary, false);
                   columns.add(column);
             }
             return columns;
